@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import {
     faCircleXmark,
     faMagnifyingGlass,
+    faSignIn,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,6 +13,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -68,7 +70,12 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button text>Tải lên</Button>
+                    <Button primary icon={<FontAwesomeIcon icon={faSignIn} />}>
+                        Đăng nhập
+                    </Button>
+                </div>
             </div>
         </header>
     );
