@@ -5,9 +5,11 @@
 }
 
 .container {
-    width: var(--default-layout-width);
-    min-height: 1000px;
     display: flex;
+    width: var(--default-layout-width);
+    padding: 0 var(--default-layout-horizontal-spacer);
+
+    min-height: 1000px;
 }
 
 .content {
