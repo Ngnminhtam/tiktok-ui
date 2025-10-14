@@ -21,81 +21,6 @@
     justify-content: space-between;
 }
 
-.search,
-.search-result {
-    width: 361px;
-}
-
-.search {
-    position: relative;
-    height: var(--search-height);
-    padding-left: 16px;
-    background-color: rgb(242, 242, 242);
-    border-radius: var(--search-border-radius);
-    display: flex;
-    border: 1.5px solid transparent;
-
-    input {
-        flex: 1;
-        height: 100%;
-        font-size: 1.6rem;
-        color: var(--black);
-        background-color: transparent;
-        caret-color: var(--primary);
-    }
-
-    input:not(:placeholder-shown) ~ .search-btn {
-        color: rgba(22, 24, 35, 0.75);
-    }
-
-    &::after {
-        position: absolute;
-        content: '';
-        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-        width: 1px;
-        background-color: rgba(22, 24, 35, 0.12);
-        right: var(--search-button-width);
-        top: var(--search-top-spacer);
-    }
-
-    &:focus-within {
-        border-color: rgba(22, 24, 35, 0.2);
-    }
-}
-
-.search-title {
-    padding: 5px 12px;
-    font-size: 1.4rem;
-    color: rgba(22, 24, 35, 0.5);
-}
-
-.loading,
-.clear {
-    position: absolute;
-    right: calc(var(--search-button-width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
-}
-
-.search-btn {
-    width: var(--search-button-width);
-    height: 100%;
-    font-size: 1.8rem;
-    color: rgba(22, 24, 35, 0.34);
-    border-bottom-right-radius: var(--search-border-radius);
-    border-top-right-radius: var(--search-border-radius);
-
-    &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
-        cursor: pointer;
-    }
-
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
-}
-
 // Actions
 .actions {
     display: flex;
@@ -106,12 +31,28 @@
 
 .action-btn {
     position: relative;
+    display: flex;
     background-color: transparent;
     font-size: 2.2rem;
     width: 40px;
     height: 32px;
     color: #161823;
     cursor: pointer;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    padding: 0 6px;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--primary);
 }
 
 .more-btn {
@@ -127,24 +68,6 @@
     height: 32px;
     object-fit: cover;
     border-radius: 50%;
+    margin-left: 14px;
     cursor: pointer;
-}
-
-.action-sup {
-    right: 0px;
-    background: var(--primary);
-    min-width: 1.6rem;
-    height: 1.6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.8rem;
-    position: absolute;
-    top: -10%;
-
-    p {
-        color: var(--white);
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
 }
