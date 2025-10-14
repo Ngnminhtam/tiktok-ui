@@ -12,7 +12,6 @@ import {
     faSignIn,
     faSignOut,
     faSpinner,
-    faUpload,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,6 +25,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { ActionIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -141,11 +142,34 @@ function Header() {
                         <>
                             <Tippy
                                 delay={[0, 200]}
-                                content="Upload"
+                                content="Tải lên"
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faUpload} />
+                                    <UploadIcon />
+                                </button>
+                            </Tippy>
+
+                            <Tippy
+                                delay={[0, 200]}
+                                content="Tin nhắn"
+                                placement="bottom"
+                            >
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+
+                            <Tippy
+                                delay={[0, 200]}
+                                content="Hoạt động"
+                                placement="bottom"
+                            >
+                                <button className={cx('action-btn')}>
+                                    <ActionIcon />
+                                    <sup className={cx('action-sup')}>
+                                        <p>2</p>
+                                    </sup>
                                 </button>
                             </Tippy>
                         </>
@@ -165,10 +189,11 @@ function Header() {
                         onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/6704c51f5c6155ebfcbe7e20ed95608a~tplv-tiktokx-cropcenter:720:720.jpeg?dr=14579&refresh_token=94ce4c05&x-expires=1760619600&x-signature=EyzxfHLX9eW%2F3vtDtHNqLtsgVl4%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"
                                 className={cx('user-avatar')}
                                 alt="Nguyen Minh Tam"
+                                // fallback="https://www.gravatar.com/avatar/693f9aa7bd637f886c3d6eeabada2566f3da0b5bab920da5c547a20cc74a01b7.jpg?s=80&d=mp&r=g"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

@@ -99,13 +99,17 @@
 // Actions
 .actions {
     display: flex;
-    gap: 24px;
+    gap: 18px;
     align-items: center;
+    justify-content: center;
 }
 
 .action-btn {
+    position: relative;
     background-color: transparent;
     font-size: 2.2rem;
+    width: 40px;
+    height: 32px;
     color: #161823;
     cursor: pointer;
 }
@@ -124,4 +128,23 @@
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.action-sup {
+    right: 0px;
+    background: var(--primary);
+    min-width: 1.6rem;
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8rem;
+    position: absolute;
+    top: -10%;
+
+    p {
+        color: var(--white);
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
 }
