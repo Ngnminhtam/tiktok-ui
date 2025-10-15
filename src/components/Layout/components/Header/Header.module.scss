@@ -21,6 +21,10 @@
     justify-content: space-between;
 }
 
+.logo-link {
+    display: flex;
+}
+
 // Actions
 .actions {
     display: flex;
@@ -48,7 +52,7 @@
     height: 2rem;
     line-height: 2rem;
     border-radius: 10px;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--white);
