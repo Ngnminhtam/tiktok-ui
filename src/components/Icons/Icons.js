@@ -98,7 +98,6 @@ export const LiveIcon = ({
         width={width}
         height={height}
         fill="currentColor"
-        class="css-j7q81j-5e6d46e3--StyledLiveIcon e1a809ow2"
         viewBox="0 0 48 48"
         xmlns="http://www.w3.org/2000/svg"
     >
@@ -152,7 +151,6 @@ export const LiveActiveIcon = ({
         width={width}
         height={height}
         fill="currentColor"
-        class="tiktok-xrx4y4 e1a809ow3"
         viewBox="0 0 48 48"
         xmlns="http://www.w3.org/2000/svg"
     >

@@ -20,7 +20,7 @@ function SuggestedAccounts({ data, label }) {
 }
 
 SuggestedAccounts.propTypes = {
-    data: PropTypes.object.isRequired,
+    // data: PropTypes.object.isRequired,
     label: PropTypes.string.isRequired,
 };
 
