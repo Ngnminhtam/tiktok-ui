@@ -10,6 +10,7 @@ import {
     LiveActiveIcon,
     LiveIcon,
 } from '~/components/Icons';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = classNames.bind(styles);
 
@@ -36,6 +37,8 @@ function Sidebar() {
                     activeIcon={<LiveActiveIcon />}
                 />
             </Menu>
+            <SuggestedAccounts label="Các tài khoản Đã follow"></SuggestedAccounts>
+            <SuggestedAccounts label="Tài khoản được đề xuất"></SuggestedAccounts>
         </aside>
     );
 }
