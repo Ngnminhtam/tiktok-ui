@@ -48,10 +48,12 @@ const sections = [
 ];
 
 function Footer() {
+    console.log('re-render Footer');
+
     const [activeIndex, setActiveIndex] = useState(null);
 
     const handleToggle = (index) => {
-        // Nếu click lại cùng 1 mục thì đóng, còn nếu click mục khác thì mở cái mới
+        //     // Nếu click lại cùng 1 mục thì đóng, còn nếu click mục khác thì mở cái mới
         setActiveIndex(activeIndex === index ? null : index);
     };
 
@@ -59,6 +61,7 @@ function Footer() {
         <footer className={cx('footer')}>
             {sections.map((section, index) => (
                 <FooterSection
+                    key={section.title}
                     title={section.title}
                     links={section.links}
                     isOpen={activeIndex === index}

@@ -5,6 +5,8 @@ import styles from './Footer.module.scss';
 const cx = classNames.bind(styles);
 
 function FooterSection({ title, links, isOpen, onClick }) {
+    console.log('re-render FooterSection');
+
     return (
         <div className={cx('wrapper')}>
             <h3
@@ -32,7 +34,7 @@ function FooterSection({ title, links, isOpen, onClick }) {
 
 FooterSection.propTypes = {
     title: PropTypes.string.isRequired,
-    links: PropTypes.node,
+    links: PropTypes.array,
 };
 
 export default FooterSection;
