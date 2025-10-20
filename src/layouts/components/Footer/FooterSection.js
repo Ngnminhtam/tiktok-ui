@@ -19,7 +19,9 @@ function FooterSection({ title, links, isOpen, onClick }) {
                 <ul className={cx('list-links')}>
                     {links.map((link, index) => (
                         <li className={cx('link')} key={index}>
-                            <a href={link.href}>{link.label}</a>
+                            <a className={cx('label')} href={link.href}>
+                                {link.label}
+                            </a>
                         </li>
                     ))}
                 </ul>

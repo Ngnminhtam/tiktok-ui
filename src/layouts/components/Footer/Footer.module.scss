@@ -48,13 +48,13 @@
     line-height: 1.6rem;
     font-weight: 600;
 
-    a {
-        color: rgba(22, 24, 35, 0.5);
-    }
-
     &:hover {
-        text-decoration: underline;
+        text-decoration: underline rgba(22, 24, 35, 0.5);
     }
+}
+
+.label {
+    color: rgba(22, 24, 35, 0.5);
 }
 
 .copyright {
