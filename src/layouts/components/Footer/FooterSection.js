@@ -5,8 +5,6 @@ import styles from './Footer.module.scss';
 const cx = classNames.bind(styles);
 
 function FooterSection({ title, links, isOpen, onClick }) {
-    console.log('re-render FooterSection');
-
     return (
         <div className={cx('wrapper')}>
             <h3

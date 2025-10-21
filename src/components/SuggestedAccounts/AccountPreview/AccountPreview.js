@@ -1,20 +1,22 @@
 import classNames from 'classnames/bind';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
 import styles from './AccountPreview.module.scss';
 import Button from '~/components/Button';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
-function AccountPreview() {
+function AccountPreview({ data }) {
     return (
         <div className={cx('wrapper')}>
             <header className={cx('header')}>
-                <img
+                <Image
                     className={cx('avatar')}
-                    src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/8f912daa36576b89cd5764c307af5ca5~tplv-tiktokx-cropcenter:100:100.jpeg?dr=14579&refresh_token=a4e6f7db&x-expires=1760918400&x-signature=16jUu2e%2FeWcENus%2BMNSlGl0ScZU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=sg1"
-                    alt=""
+                    src={data.avatar}
+                    alt={data.nickname}
                 />
                 <Button className={cx('follow-btn')} primary>
                     Follow
@@ -22,23 +24,31 @@ function AccountPreview() {
             </header>
             <div className={cx('body')}>
                 <p className={cx('name')}>
-                    <strong>Vật Vờ Studio</strong>
-                    <FontAwesomeIcon
-                        className={cx('check')}
-                        icon={faCheckCircle}
-                    />
+                    <strong>{`${data.first_name} ${data.last_name}`}</strong>
+                    {data.tick && (
+                        <FontAwesomeIcon
+                            className={cx('check')}
+                            icon={faCheckCircle}
+                        />
+                    )}
                 </p>
-                <p className={cx('nickname')}>vatvostudio</p>
+                <p className={cx('nickname')}>{data.nickname}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>8.2M</strong>
+                    <strong className={cx('value')}>
+                        {data.followers_count}
+                    </strong>
                     <span className={cx('label')}>Followers</span>
 
-                    <strong className={cx('value')}>8.2M</strong>
+                    <strong className={cx('value')}>{data.likes_count}</strong>
                     <span className={cx('label')}>Likes</span>
                 </p>
             </div>
         </div>
     );
 }
+
+AccountPreview.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default AccountPreview;

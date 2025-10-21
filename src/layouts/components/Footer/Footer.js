@@ -48,8 +48,6 @@ const sections = [
 ];
 
 function Footer() {
-    console.log('re-render Footer');
-
     const [activeIndex, setActiveIndex] = useState(null);
 
     const handleToggle = (index) => {
