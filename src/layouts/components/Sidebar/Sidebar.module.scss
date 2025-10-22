@@ -1,7 +1,9 @@
 .wrapper {
     width: 260px;
-    min-height: 1000px;
+    // min-height: 1000px;
+    max-height: 100vh;
     padding: 8px 0;
     margin-left: -8px;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }

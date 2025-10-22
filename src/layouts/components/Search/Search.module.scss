@@ -1,6 +1,6 @@
 .search,
 .search-result {
-    width: 361px;
+    width: 300px;
 }
 
 .search {
@@ -8,7 +8,11 @@
     height: var(--search-height);
     padding-left: 16px;
     background-color: rgb(242, 242, 242);
-    border-radius: var(--search-border-radius);
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    // border-radius: var(--search-border-radius);
     display: flex;
     border: 1.5px solid transparent;
 

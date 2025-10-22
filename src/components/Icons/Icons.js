@@ -39,18 +39,16 @@ export const InboxIcon = ({
     className,
 }) => (
     <svg
+        fill="currentColor"
+        fontSize="32px"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
         className={className}
         width={width}
         height={height}
-        viewBox="0 0 32 32"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
     >
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M24.0362 21.3333H18.5243L15.9983 24.4208L13.4721 21.3333H7.96047L7.99557 8H24.0009L24.0362 21.3333ZM24.3705 23.3333H19.4721L17.2883 26.0026C16.6215 26.8176 15.3753 26.8176 14.7084 26.0026L12.5243 23.3333H7.62626C6.70407 23.3333 5.95717 22.5845 5.9596 21.6623L5.99646 7.66228C5.99887 6.74352 6.74435 6 7.66312 6H24.3333C25.2521 6 25.9975 6.7435 26 7.66224L26.0371 21.6622C26.0396 22.5844 25.2927 23.3333 24.3705 23.3333ZM12.6647 14C12.2965 14 11.998 14.2985 11.998 14.6667V15.3333C11.998 15.7015 12.2965 16 12.6647 16H19.3313C19.6995 16 19.998 15.7015 19.998 15.3333V14.6667C19.998 14.2985 19.6995 14 19.3313 14H12.6647Z"
-        ></path>
+        <path d="M9 11.5A2.5 2.5 0 0 1 11.5 9h25a2.5 2.5 0 0 1 2.5 2.5l.06 21a2.5 2.5 0 0 1-2.5 2.5H29.2l-3.27 4a2.5 2.5 0 0 1-3.87 0l-3.28-4h-7.35a2.5 2.5 0 0 1-2.5-2.5l.06-21Zm3 .5-.06 20h8.27L24 36.63 27.79 32h8.27L36 12H12Z"></path>
+        <path d="M18 22a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H19a1 1 0 0 1-1-1v-1Z"></path>
     </svg>
 );
 
@@ -155,5 +153,173 @@ export const LiveActiveIcon = ({
         xmlns="http://www.w3.org/2000/svg"
     >
         <path d="M16.57 7.49a1 1 0 0 0-.13 1.4l4.04 4.81h-4.53c-2.71 0-4.07 0-5.1.52a4.82 4.82 0 0 0-2.12 2.1c-.53 1.02-.53 2.37-.53 5.05v10.26c0 2.68 0 4.03.53 5.05.46.9 1.2 1.64 2.12 2.1 1.03.52 2.39.52 5.1.52h16.1c2.71 0 4.07 0 5.1-.52a4.82 4.82 0 0 0 2.12-2.1c.53-1.02.53-2.37.53-5.05V21.37c0-2.68 0-4.03-.53-5.05a4.82 4.82 0 0 0-2.12-2.1c-1.03-.52-2.39-.52-5.1-.52h-4.6l4.04-4.8a1 1 0 0 0-.12-1.41l-.77-.65a1 1 0 0 0-1.4.13l-5.23 6.22-5.23-6.22a1 1 0 0 0-1.4-.13l-.77.65ZM15.3 26.65a1 1 0 0 1 .44-.44c.21-.1.49-.1 1.05-.1h.4c.56 0 .84 0 1.05.1a1 1 0 0 1 .44.44c.11.21.11.5.11 1.05V32c0 .56 0 .84-.1 1.05a1 1 0 0 1-.45.44c-.21.11-.49.11-1.05.11h-.4c-.56 0-.84 0-1.05-.1a1 1 0 0 1-.44-.45c-.11-.2-.11-.49-.11-1.05v-4.3c0-.56 0-.84.1-1.05ZM22.2 21c0-.56 0-.84.1-1.05a1 1 0 0 1 .45-.44c.21-.1.49-.1 1.05-.1h.4c.56 0 .84 0 1.05.1a1 1 0 0 1 .44.44c.11.21.11.5.11 1.05v11c0 .56 0 .84-.1 1.05a1 1 0 0 1-.45.44c-.21.11-.49.11-1.05.11h-.4c-.56 0-.84 0-1.05-.1a1 1 0 0 1-.44-.45c-.11-.2-.11-.49-.11-1.05V21Zm7.1 2.65a1 1 0 0 1 .45-.44c.21-.1.49-.1 1.05-.1h.4c.56 0 .84 0 1.05.1a1 1 0 0 1 .44.44c.11.21.11.5.11 1.05V32c0 .56 0 .84-.1 1.05a1 1 0 0 1-.45.44c-.21.11-.49.11-1.05.11h-.4c-.56 0-.84 0-1.05-.1a1 1 0 0 1-.44-.45c-.11-.2-.11-.49-.11-1.05v-7.3c0-.56 0-.84.1-1.05Z"></path>
+    </svg>
+);
+
+//Action Video
+
+export const LikeIcon = ({
+    width = '2.4rem',
+    height = '2.4rem',
+    className,
+}) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <g clipPath="url(#HeartFill_clip0)">
+            <g filter="url(#HeartFill_filter0_d)">
+                <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M7.5 2.25C10.5 2.25 12 4.25 12 4.25C12 4.25 13.5 2.25 16.5 2.25C20 2.25 22.5 4.99999 22.5 8.5C22.5 12.5 19.2311 16.0657 16.25 18.75C14.4095 20.4072 13 21.5 12 21.5C11 21.5 9.55051 20.3989 7.75 18.75C4.81949 16.0662 1.5 12.5 1.5 8.5C1.5 4.99999 4 2.25 7.5 2.25Z"
+                ></path>
+            </g>
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M2.40179 12.1998C3.58902 14.6966 5.7592 16.9269 7.74989 18.75C9.5504 20.3989 10.9999 21.5 11.9999 21.5C12.9999 21.5 14.4094 20.4072 16.2499 18.75C19.231 16.0657 22.4999 12.5 22.4999 8.49997C22.4999 8.41258 22.4983 8.32566 22.4952 8.23923C20.5671 13.6619 13.6787 18.5 11.75 18.5C10.3127 18.5 5.61087 15.8131 2.40179 12.1998Z"
+                fillOpacity="0.03"
+            ></path>
+        </g>
+        <defs>
+            <filter
+                id="HeartFill_filter0_d"
+                x="-0.9"
+                y="1.05"
+                width="25.8"
+                height="24.05"
+                filterUnits="userSpaceOnUse"
+                colorInterpolationFilters="sRGB"
+            >
+                <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+                <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                ></feColorMatrix>
+                <feOffset dy="1.2"></feOffset>
+                <feGaussianBlur stdDeviation="1.2"></feGaussianBlur>
+                <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                ></feColorMatrix>
+                <feBlend
+                    mode="normal"
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow"
+                ></feBlend>
+                <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect1_dropShadow"
+                    result="shape"
+                ></feBlend>
+            </filter>
+            <clipPath id="HeartFill_clip0">
+                <rect width="24" height="24" fill="white"></rect>
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+export const CommentIcon = ({
+    width = '2.4rem',
+    height = '2.4rem',
+    className,
+}) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 48 48"
+        fill="currentColor"
+        className={className}
+        width={width}
+        height={height}
+    >
+        <path
+            fillRule="evenodd"
+            d="M2 21.5c0-10.22 9.88-18 22-18s22 7.78 22 18c0 5.63-3.19 10.74-7.32 14.8a43.6 43.6 0 0 1-14.14 9.1A1.5 1.5 0 0 1 22.5 44v-5.04C11.13 38.4 2 31.34 2 21.5M14 25a3 3 0 1 0 0-6 3 3 0 0 0 0 6m10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6m13-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0"
+            clipRule="evenodd"
+        ></path>
+    </svg>
+);
+
+export const FavoriteIcon = ({
+    width = '2.4rem',
+    height = '2.4rem',
+    className,
+}) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fill="currentColor"
+            d="M4 4.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.13a1 1 0 0 1-1.555.831l-6.167-4.12a.5.5 0 0 0-.556 0l-6.167 4.12A1 1 0 0 1 4 19.63z"
+        ></path>
+        <path
+            fill="currentColor"
+            fillOpacity="0.03"
+            d="M4.032 4.144Q4 4.317 4 4.5v15.13a1 1 0 0 0 1.555.831l6.167-4.12a.5.5 0 0 1 .41-.066l-.427-.198a1.49 1.49 0 0 0-1.377.063c-.581.339-1.45.85-2.25 1.339-.59.359-1.427.695-2.187.962-.929.325-1.86-.387-1.86-1.37zm8.251 12.202 6.162 4.115A1 1 0 0 0 20 19.63V4.5a2 2 0 0 0-1.123-1.798c.21.254.334.58.33.936a117 117 0 0 1-.896 13.408c-.124.99-1.17 1.553-2.076 1.133z"
+        ></path>
+    </svg>
+);
+
+export const ShareIcon = ({
+    width = '2.4rem',
+    height = '2.4rem',
+    className,
+}) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        className={className}
+        width={width}
+        height={height}
+    >
+        <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="M10.938 3.175a.674.674 0 0 1 1.138-.488l6.526 6.215c.574.547.554 1.47-.043 1.991l-6.505 5.676a.674.674 0 0 1-1.116-.508V13.49s-6.985-1.258-9.225 2.854c-.209.384-1.023.518-.857-1.395.692-3.52 2.106-9.017 10.082-9.017z"
+            clipRule="evenodd"
+        ></path>
+        <path
+            fill="#161823"
+            fillRule="evenodd"
+            d="m15.754 6.212 1.295 2.59a1.12 1.12 0 0 1-.268 1.349l-5.799 5.042s-.28 1.403.562 1.403 7.578-6.174 7.578-6.174.28-.842-.561-1.684c-.843-.842-2.807-2.526-2.807-2.526"
+            clipRule="evenodd"
+            opacity="0.03"
+        ></path>
+        <path
+            fill="url(#a)"
+            fillRule="evenodd"
+            d="M10.937 6.23v7.297s-6.683-.942-8.777 2.246C.146 18.839.331 12.309 3.363 9.057s7.574-2.827 7.574-2.827"
+            clipRule="evenodd"
+            opacity="0.09"
+        ></path>
+        <defs>
+            <radialGradient
+                id="a"
+                cx="0"
+                cy="0"
+                r="1"
+                gradientTransform="rotate(-113.046 11.628 5.43)scale(8.93256 8.78076)"
+                gradientUnits="userSpaceOnUse"
+            >
+                <stop></stop>
+                <stop offset="0.995" stopOpacity="0.01"></stop>
+                <stop offset="1" stopOpacity="0.01"></stop>
+            </radialGradient>
+        </defs>
     </svg>
 );

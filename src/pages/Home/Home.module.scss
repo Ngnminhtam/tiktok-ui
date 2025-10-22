@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+}
+
+.navigation {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+
+.navigation-btn {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    font-size: 2.4rem;
+    cursor: pointer;
+    background-color: #0000000d;
+
+    &:hover {
+        background-color: #0000001f;
+    }
+}

@@ -1,0 +1,127 @@
+.wrapper {
+    position: relative;
+    height: calc(100vh - var(--default-layout-header-height));
+    // margin-top: 12px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover .audio-control {
+        display: flex;
+        animation: fadeIn 0.3s ease forwards;
+    }
+}
+
+.video {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.audio-control {
+    display: none;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+
+    font-size: 2rem;
+    color: #f6f6f6;
+
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        display: flex;
+        background-color: #ffffff30;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.caption {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 48px;
+    color: #f6f6f6;
+    left: 12px;
+}
+
+.nickname {
+    display: inline-block;
+    color: #f6f6f6;
+    font-size: 1.7rem;
+    font-weight: 600;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.check {
+    margin-left: 4px;
+    color: #20d5ec;
+    font-size: 1.4rem;
+    background-color: #f6f6f6;
+    border-radius: 50%;
+}
+
+.video-desc {
+    font-size: 1.4rem;
+    font-weight: inherit;
+}
+
+.desc {
+}
+
+.tag {
+    margin-left: 4px;
+    font-weight: 600;
+    color: #f6f6f6;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.video-progress {
+}
+
+@keyframes fadeIcon {
+    to {
+        font-size: 12rem;
+        opacity: 0;
+    }
+}
+
+.icon-pause {
+    display: none;
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.icon-pause.show {
+    display: block;
+    animation: fadeIcon 1s ease forwards;
+}
