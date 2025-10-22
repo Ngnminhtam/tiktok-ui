@@ -1,7 +1,6 @@
 .wrapper {
     width: 100%;
-    position: relative;
-    max-height: calc(0px + 100vh);
+    max-height: calc(100vh - var(--default-layout-header-height));
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;

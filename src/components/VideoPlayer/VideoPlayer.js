@@ -1,4 +1,4 @@
-import React, { use, useRef, useState } from 'react';
+import React, { use, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './VideoPlayer.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,10 +14,28 @@ const cx = classNames.bind(styles);
 
 function VideoPlayer() {
     const videoRef = useRef();
+    const progressRef = useRef(null);
 
     const [muted, setMuted] = useState(true);
     const [pause, setPause] = useState(false);
     const [showIcon, setShowIcon] = useState(false);
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const updateProgress = () => {
+            const percent = (video.currentTime / video.duration) * 100;
+            setProgress(percent);
+        };
+
+        video.addEventListener('timeupdate', updateProgress);
+
+        return () => {
+            video.removeEventListener('timeupdate', updateProgress);
+        };
+    }, []);
 
     const handleToggleSound = () => {
         if (videoRef.current) {
@@ -40,6 +58,30 @@ function VideoPlayer() {
             setShowIcon(false);
             window._hideIconTimeout = null;
         }, 1000);
+    };
+
+    const handleSeek = (e) => {
+        const rect = progressRef.current.getBoundingClientRect(); // lấy vị trí & kích thước thanh progress
+        const x = e.clientX || (e.touches && e.touches[0].clientX); // lấy tọa độ nơi người dùng bấm/chạm
+        const percent = (x - rect.left) / rect.width; // tính phần trăm vị trí bấm
+        videoRef.current.currentTime = percent * videoRef.current.duration; // tua video tới vị trí tương ứng
+    };
+
+    const handleMouseDown = (e) => {
+        handleSeek(e);
+
+        const handleMove = (event) => handleSeek(event);
+        const handleUp = () => {
+            document.removeEventListener('mousemove', handleMove);
+            document.removeEventListener('mouseup', handleUp);
+            document.removeEventListener('touchmove', handleMove);
+            document.removeEventListener('touchend', handleUp);
+        };
+
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('mouseup', handleUp);
+        document.addEventListener('touchmove', handleMove);
+        document.addEventListener('touchend', handleUp);
     };
 
     return (
@@ -83,7 +125,17 @@ function VideoPlayer() {
                     </a>
                 </div>
             </div>
-            <div className={cx('video-progress')}></div>
+            <div
+                ref={progressRef}
+                className={cx('video-progress')}
+                onMouseDown={handleMouseDown}
+                onTouchStart={handleMouseDown}
+            >
+                <div
+                    className={cx('video-progress__bar')}
+                    style={{ width: `${progress}%` }}
+                ></div>
+            </div>
 
             {showIcon && (
                 <FontAwesomeIcon

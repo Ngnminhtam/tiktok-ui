@@ -2,11 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: calc(100vh - var(--default-layout-header-height));
     gap: 16px;
+    scroll-snap-align: start; /* 👈 Dính khi chạm đỉnh */
 }
 
 // Actions
-
 .actions {
     display: flex;
     flex-direction: column;

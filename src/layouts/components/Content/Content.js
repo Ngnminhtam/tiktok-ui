@@ -9,6 +9,9 @@ function Content() {
     return (
         <div className={cx('wrapper')}>
             <Item />
+            <Item />
+            <Item />
+            <Item />
         </div>
     );
 }

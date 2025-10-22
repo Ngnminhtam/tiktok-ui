@@ -1,13 +1,13 @@
 .wrapper {
     position: relative;
-    height: calc(100vh - var(--default-layout-header-height));
-    // margin-top: 12px;
-    padding-bottom: 40px;
+    max-height: calc(100% - var(--default-layout-header-height));
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    border-radius: 16px;
     cursor: pointer;
+    overflow: hidden;
 
     &:hover .audio-control {
         display: flex;
@@ -16,6 +16,7 @@
 }
 
 .video {
+    // height: 80%;
     height: 100%;
     width: auto;
     object-fit: contain;
@@ -62,7 +63,7 @@
     flex-direction: column;
     align-items: flex-start;
     position: absolute;
-    bottom: 48px;
+    bottom: 16px;
     color: #f6f6f6;
     left: 12px;
 }
@@ -104,6 +105,40 @@
 }
 
 .video-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.4rem;
+    width: 100%;
+
+    background-color: #ffffff66;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+
+    overflow: hidden;
+
+    &__bar {
+        height: 100%;
+        background-color: var(--primary);
+        transition: width 0.2s linear;
+        position: relative;
+    }
+
+    &:hover {
+        height: 0.8rem;
+        transition: height 0.5s linear;
+    }
+}
+.video-progress:hover {
+    .video-progress__bar::after {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        right: 0;
+        position: absolute;
+        background-color: #f6f6f6;
+        animation: fadeIn 0.3s linear;
+    }
 }
 
 @keyframes fadeIcon {

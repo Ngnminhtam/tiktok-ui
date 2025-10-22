@@ -29,6 +29,7 @@ function AccountItem({ data }) {
                 placement="bottom"
                 offset={[32, 8]}
                 render={renderPreview}
+                appendTo={document.body}
             >
                 <div className={cx('account-item')}>
                     <Image
