@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './VideoPlayer.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +12,7 @@ import {
 
 const cx = classNames.bind(styles);
 
-function VideoPlayer() {
+function VideoPlayer({ data }) {
     const videoRef = useRef();
     const progressRef = useRef(null);
 
@@ -87,14 +87,14 @@ function VideoPlayer() {
     return (
         <section className={cx('wrapper')}>
             <video
-                className={cx('video')}
                 ref={videoRef}
+                className={cx('video')}
                 autoPlay
                 loop
                 muted
                 playsInline
                 onClick={handlePause}
-                src="https://files.fullstack.edu.vn/f8-tiktok/videos/3712-666b02d872740.mp4"
+                src={data.file_url}
             />
             <div className={cx('audio-control')}>
                 <span
@@ -110,18 +110,18 @@ function VideoPlayer() {
             </div>
             <div className={cx('caption')}>
                 <a href="/">
-                    <p className={cx('nickname')}>quangkhonggo</p>
-                    <FontAwesomeIcon
-                        className={cx('check')}
-                        icon={faCheckCircle}
-                    />
+                    <p className={cx('nickname')}>{data.user.nickname}</p>
+                    {data.user.tick && (
+                        <FontAwesomeIcon
+                            className={cx('check')}
+                            icon={faCheckCircle}
+                        />
+                    )}
                 </a>
                 <div className={cx('video-desc')}>
-                    <span className={cx('desc')}>
-                        Bánh mì 550k trên Landmark 81
-                    </span>
+                    <span className={cx('desc')}>{data.description}</span>
                     <a className={cx('tag')} href="/">
-                        #quangkhonggo
+                        {data.user.nickname}
                     </a>
                 </div>
             </div>

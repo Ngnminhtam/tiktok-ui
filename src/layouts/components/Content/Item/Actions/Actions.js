@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 
 import {
     CommentIcon,
@@ -9,48 +10,76 @@ import {
     ShareIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
-import styles from '../Item.module.scss';
+import styles from './Actions.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Actions() {
+function Actions({ data }) {
+    const [follow, setFollow] = useState(false);
+    const [like, setLike] = useState(data.is_liked);
+    const [favorite, setFavorite] = useState(false);
+
     return (
         <section>
             <nav className={cx('actions')}>
-                <a className={cx('wrapper-img', 'wrapper-avatar')} href="/">
-                    <Image
-                        className={cx('avatar')}
-                        src="http://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/6704c51f5c6155ebfcbe7e20ed95608a%7etplv-tiktokx-cropcenter:720:720.jpeg"
-                    />
-                    <button className={cx('follow-btn')}>
-                        <FontAwesomeIcon icon={faPlus} />
+                <a
+                    className={cx('wrapper-img', 'wrapper-avatar')}
+                    href={`/@${data.user.nickname}`}
+                >
+                    <Image className={cx('avatar')} src={data.user.avatar} />
+                    <button
+                        className={cx('follow-btn', {
+                            active: data.user.is_followed,
+                        })}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setFollow(!follow);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={follow ? faCheck : faPlus} />
                     </button>
                 </a>
-                <button className={cx('action')}>
-                    <span className={cx('btn')}>{<LikeIcon />}</span>
-                    <strong className={cx('count')}>31.8K</strong>
+                <button
+                    className={cx('action')}
+                    onClick={() => {
+                        setLike(!like);
+                    }}
+                >
+                    <span className={cx('btn', { like })}>{<LikeIcon />}</span>
+                    <strong className={cx('count')}>{data.likes_count}</strong>
                 </button>
 
                 <button className={cx('action')}>
                     <span className={cx('btn')}>{<CommentIcon />}</span>
-                    <strong className={cx('count')}>313</strong>
+                    <strong className={cx('count')}>
+                        {data.comments_count}
+                    </strong>
                 </button>
 
-                <button className={cx('action')}>
-                    <span className={cx('btn')}>{<FavoriteIcon />}</span>
-                    <strong className={cx('count')}>3928</strong>
+                <button
+                    className={cx('action')}
+                    onClick={() => {
+                        setFavorite(!favorite);
+                    }}
+                >
+                    <span className={cx('btn', { favorite })}>
+                        {<FavoriteIcon />}
+                    </span>
+                    <strong className={cx('count')}>{data.shares_count}</strong>
                 </button>
 
                 <button className={cx('action')}>
                     <span className={cx('btn')}>{<ShareIcon />}</span>
-                    <strong className={cx('count')}>7926</strong>
+                    <strong className={cx('count')}>{data.shares_count}</strong>
                 </button>
-                <a className={cx('wrapper-img')} href="/">
-                    <Image
-                        className={cx('music-img')}
-                        src="http://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/6704c51f5c6155ebfcbe7e20ed95608a%7etplv-tiktokx-cropcenter:720:720.jpeg"
-                    />
-                </a>
+                {!!data.music && (
+                    <a className={cx('wrapper-img')} href={`#${data.music}`}>
+                        <Image
+                            className={cx('music-img')}
+                            src={data.user.avatar}
+                        />
+                    </a>
+                )}
             </nav>
         </section>
     );

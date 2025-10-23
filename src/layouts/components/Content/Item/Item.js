@@ -6,11 +6,11 @@ import VideoPlayer from '~/components/VideoPlayer';
 
 const cx = classNames.bind(styles);
 
-function Item({ index }) {
+function Item({ data }) {
     return (
         <article className={cx('wrapper')}>
-            <VideoPlayer />
-            <Actions />
+            <VideoPlayer data={data} />
+            <Actions data={data} />
         </article>
     );
 }
