@@ -12,13 +12,13 @@ import {
 
 const cx = classNames.bind(styles);
 
-function VideoPlayer({ data }) {
+function VideoPlayer({ data, isPlay = false, isMuted = false }) {
     const videoRef = useRef();
     const progressRef = useRef(null);
 
-    const [muted, setMuted] = useState(true);
-    const [pause, setPause] = useState(false);
-    const [showIcon, setShowIcon] = useState(false);
+    const [muted, setMuted] = useState(isMuted);
+    const [pause, setPause] = useState(!isPlay);
+    const [showIconPause, setShowIconPause] = useState(false);
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
@@ -37,11 +37,30 @@ function VideoPlayer({ data }) {
         };
     }, []);
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                // Kiểm tra video có đang hiển thị trong khung nhìn không
+                const rect = videoRef.current.getBoundingClientRect();
+                const isVisible =
+                    rect.top >= 0 &&
+                    rect.bottom <=
+                        (window.innerHeight ||
+                            document.documentElement.clientHeight);
+
+                if (isVisible) {
+                    handlePause();
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    });
+
     const handleToggleSound = () => {
-        if (videoRef.current) {
-            videoRef.current.muted = !videoRef.current.muted;
-            setMuted(!muted);
-        }
+        setMuted(!muted);
     };
 
     const handlePause = () => {
@@ -52,10 +71,10 @@ function VideoPlayer({ data }) {
             videoRef.current.pause();
             setPause(true);
         }
-        setShowIcon(true);
+        setShowIconPause(true);
         if (window._hideIconTimeout) clearTimeout(window._hideIconTimeout);
         window._hideIconTimeout = setTimeout(() => {
-            setShowIcon(false);
+            setShowIconPause(false);
             window._hideIconTimeout = null;
         }, 1000);
     };
@@ -89,9 +108,9 @@ function VideoPlayer({ data }) {
             <video
                 ref={videoRef}
                 className={cx('video')}
-                autoPlay
                 loop
-                muted
+                autoPlay={!pause}
+                muted={muted}
                 playsInline
                 onClick={handlePause}
                 src={data.file_url}
@@ -109,7 +128,7 @@ function VideoPlayer({ data }) {
                 </span>
             </div>
             <div className={cx('caption')}>
-                <a href="/">
+                <a href={`/@${data.user.nickname}`}>
                     <p className={cx('nickname')}>{data.user.nickname}</p>
                     {data.user.tick && (
                         <FontAwesomeIcon
@@ -120,8 +139,8 @@ function VideoPlayer({ data }) {
                 </a>
                 <div className={cx('video-desc')}>
                     <span className={cx('desc')}>{data.description}</span>
-                    <a className={cx('tag')} href="/">
-                        {data.user.nickname}
+                    <a className={cx('tag')} href="#">
+                        {data.user.tag}
                     </a>
                 </div>
             </div>
@@ -137,7 +156,7 @@ function VideoPlayer({ data }) {
                 ></div>
             </div>
 
-            {showIcon && (
+            {showIconPause && (
                 <FontAwesomeIcon
                     className={cx('icon-pause', 'show')}
                     icon={pause ? faCirclePause : faCirclePlay}

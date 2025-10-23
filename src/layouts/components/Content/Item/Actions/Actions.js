@@ -15,7 +15,7 @@ import styles from './Actions.module.scss';
 const cx = classNames.bind(styles);
 
 function Actions({ data }) {
-    const [follow, setFollow] = useState(false);
+    const [follow, setFollow] = useState(data.user.is_followed);
     const [like, setLike] = useState(data.is_liked);
     const [favorite, setFavorite] = useState(false);
 
@@ -29,7 +29,7 @@ function Actions({ data }) {
                     <Image className={cx('avatar')} src={data.user.avatar} />
                     <button
                         className={cx('follow-btn', {
-                            active: data.user.is_followed,
+                            active: follow,
                         })}
                         onClick={(e) => {
                             e.preventDefault();

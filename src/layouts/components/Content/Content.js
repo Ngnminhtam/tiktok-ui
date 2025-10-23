@@ -9,7 +9,7 @@ import * as videoService from '~/services/videoService';
 const cx = classNames.bind(styles);
 
 const TYPE = 'for-you';
-const INIT_PAGE = Math.floor(Math.random() * 50) + 1;
+const INIT_PAGE = Math.floor(Math.random() * 30) + 1;
 
 function Content() {
     const contentRef = useRef();
@@ -27,8 +27,8 @@ function Content() {
     return (
         <>
             <div ref={contentRef} className={cx('wrapper')}>
-                {items.map((item) => (
-                    <Item key={item.id} data={item} />
+                {items.map((item, index) => (
+                    <Item key={item.id} data={item} index={index} />
                 ))}
             </div>
             <Navigation contentRef={contentRef} />

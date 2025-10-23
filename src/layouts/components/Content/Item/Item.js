@@ -6,10 +6,14 @@ import VideoPlayer from '~/components/VideoPlayer';
 
 const cx = classNames.bind(styles);
 
-function Item({ data }) {
+function Item({ data, index }) {
     return (
         <article className={cx('wrapper')}>
-            <VideoPlayer data={data} />
+            <VideoPlayer
+                isPlay={index === 0}
+                data={data}
+                isMuted={index === 0}
+            />
             <Actions data={data} />
         </article>
     );

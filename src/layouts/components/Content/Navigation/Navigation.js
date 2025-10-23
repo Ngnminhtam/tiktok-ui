@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 
 import styles from '../Content.module.scss';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -29,23 +29,38 @@ function Navigation({ contentRef }) {
         };
     }, [contentRef]);
 
-    const handleScrollUp = () => {
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.code === 'ArrowUp') {
+                e.preventDefault();
+                handleScrollUp();
+            } else if (e.code === 'ArrowDown') {
+                e.preventDefault();
+                handleScrollDown();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    });
+
+    const handleScrollUp = useCallback(() => {
         if (contentRef?.current) {
             contentRef.current.scrollBy({
                 top: -contentRef.current.clientHeight, // cuộn lên 1 khung
                 behavior: 'smooth',
             });
         }
-    };
+    }, [contentRef]);
 
-    const handleScrollDown = () => {
+    const handleScrollDown = useCallback(() => {
         if (contentRef?.current) {
             contentRef.current.scrollBy({
                 top: contentRef.current.clientHeight, // cuộn xuống 1 khung
                 behavior: 'smooth',
             });
         }
-    };
+    }, [contentRef]);
 
     return (
         <nav className={cx('navigation')}>
