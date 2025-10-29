@@ -41,7 +41,7 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Hỗ trợ',
-        to: '/feedback',
+        to: '#',
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
@@ -61,18 +61,18 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
             title: 'Nhận xu',
-            to: '/coin',
+            to: '#',
         },
         {
             icon: <FontAwesomeIcon icon={faGear} />,
             title: 'Cài đặt',
-            to: '/settings',
+            to: '#',
         },
         ...MENU_ITEMS,
         {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Đăng xuất',
-            to: '/logout',
+            to: '#',
             separate: true,
         },
     ];

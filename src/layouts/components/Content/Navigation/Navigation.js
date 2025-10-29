@@ -9,16 +9,14 @@ const cx = classNames.bind(styles);
 
 function Navigation({ contentRef }) {
     const [isTop, setIsTop] = useState(true);
-    const [isBottom, setIsBottom] = useState(false);
 
     useEffect(() => {
         const content = contentRef?.current;
         if (!content) return;
 
         const handleScroll = () => {
-            const { scrollTop, scrollHeight, clientHeight } = content;
+            const { scrollTop } = content;
             setIsTop(scrollTop === 0);
-            setIsBottom(scrollTop + clientHeight >= scrollHeight - 1);
         };
 
         content.addEventListener('scroll', handleScroll);

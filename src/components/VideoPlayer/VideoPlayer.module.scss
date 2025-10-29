@@ -8,7 +8,7 @@
     cursor: pointer;
 
     aspect-ratio: 9 / 16;
-    width: 500px;
+    height: 88%;
     overflow: hidden;
 
     &:hover .audio-control {
@@ -21,6 +21,7 @@
     display: block;
     width: 100%;
     height: 100%;
+
     object-fit: contain;
     object-position: center;
 }

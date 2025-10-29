@@ -10,12 +10,9 @@
     max-width: 100%;
     padding: 0 var(--default-layout-horizontal-spacer);
     margin-top: var(--default-layout-header-height);
-
-    min-height: 1000px;
 }
 
 .content {
     flex: 1;
-    min-height: 1000px;
     margin-left: var(--default-layout-sidebar-width);
 }

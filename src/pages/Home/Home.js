@@ -6,11 +6,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 function Home() {
-    return (
-        <div className={cx('wrapper')}>
-            <Content />
-        </div>
-    );
+    return <Content />;
 }
 
 export default Home;

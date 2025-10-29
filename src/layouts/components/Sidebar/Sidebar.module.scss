@@ -2,7 +2,7 @@
     position: fixed;
     width: 260px;
     padding: 8px 0;
-    max-height: calc(100vh - var(--default-layout-header-height));
+    max-height: calc(100dvh - var(--default-layout-header-height));
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
