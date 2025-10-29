@@ -16,3 +16,12 @@
     flex: 1;
     margin-left: var(--default-layout-sidebar-width);
 }
+
+@media (max-width: 739px) {
+    .content {
+        margin-left: 0;
+    }
+    .container {
+        padding: 0;
+    }
+}

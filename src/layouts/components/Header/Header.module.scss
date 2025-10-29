@@ -19,7 +19,6 @@
 
 .inner {
     height: 100%;
-    // width: 100%;
     width: var(--default-layout-width);
     padding: 0 var(--default-layout-horizontal-spacer);
     display: flex;
@@ -80,4 +79,16 @@
     border-radius: 50%;
     margin-left: 14px;
     cursor: pointer;
+}
+
+@media (max-width: 739px) {
+    .wrapper {
+        justify-content: center;
+    }
+    .inner {
+        width: auto;
+    }
+    .actions {
+        display: none;
+    }
 }

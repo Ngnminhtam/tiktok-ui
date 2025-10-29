@@ -190,3 +190,9 @@
     display: block;
     animation: fadeIcon 1s ease forwards;
 }
+
+@media (max-width: 739px) {
+    .wrapper {
+        height: 98%;
+    }
+}

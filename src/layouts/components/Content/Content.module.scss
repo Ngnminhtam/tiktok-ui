@@ -37,3 +37,17 @@
         position: none;
     }
 }
+
+@media (max-width: 739px) {
+    .navigation {
+        display: none;
+    }
+    .wrapper {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE và Edge cũ */
+    }
+
+    .wrapper::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+}

@@ -8,3 +8,10 @@
     gap: 24px;
     scroll-snap-align: start; /* 👈 Dính khi chạm đỉnh */
 }
+
+@media (max-width: 739px) {
+    .wrapper {
+        position: relative;
+        gap: 0;
+    }
+}
